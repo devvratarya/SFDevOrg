@@ -1,0 +1,23 @@
+/**
+ * Created by darya on 11/11/2017.
+ */
+.THIS {
+}
+
+.THIS .slds-file-selector__body {
+
+    height: 100px;
+    width: 284px;
+}
+
+.THIS .custom-bg{
+    background-image: url(/resource/testImage);
+}
+.THIS .custom-bg_new{
+    background-image: url(/resource/little_insight);
+}
+
+.THIS div span
+{
+  color: red;
+}
