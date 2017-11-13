@@ -1,4 +1,4 @@
-<aura:component>
+<aura:component >
     
     <aura:attribute name="message" type="String"/>
 
@@ -13,4 +13,3 @@
     </div>
 
 </aura:component>
-   

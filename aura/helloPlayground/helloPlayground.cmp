@@ -1,4 +1,4 @@
-<aura:component>
+<aura:component >
     
     <aura:attribute name="messages" type="List"
         default="['You look nice today.',
@@ -35,4 +35,3 @@
     </aura:if>
 
 </aura:component>
-    
