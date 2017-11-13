@@ -1,3 +1,48 @@
+﻿I’m Rendering Pages as PDFs in My Application  -->  Use Visualforce. Lightning Components don’t support rendering as PDF output yet.
+
+ich muss das im Hinterkopf behalten sollten
+
+bewährte Vorgehensweisen --> proven approches --> best practices
+
+benutzerdefinierter Objekte --> custom object
+
+
+Data import:
+To analyse:
+SF: Data Loader uses the SOAP API to process records. For faster processing, you can configure it to use the Bulk API instead. The Bulk API is optimized to load a large number of records simultaneously. It is faster than the SOAP API due to parallel processing and fewer network round-trips.
+--> test it using the API practices and analyse the result how faster it can get.
+
+1. it is recommended to test your data import witha  small test file or record file to confirm the field mapping and to make sure the data is imported correctly and no back end process is messing with the records.
+2. to use the data import process, deactivate the workflow rules.
+3. one can map the same field multiple times if required, for example address fields while importing can be mapped twice for contact as well as billing address.
+4. unmapped fields are not imported
+5. to import Multi select picklist, seperate the values by a semicolon in the import file.
+6. Make sure the date format is aligned with your local salesforce settings.
+7. vaölidation rules are fired when data is imported. If a a record fails, the particular record is not imported. One should consider deactivating the appropriate validation rules before running the import if the affect the records you are importing
+
+
+Data Security:
+The data security model is implemented at the user interface, but the impact of data security goes down till the API level. 
+
+
+Lightning Components
+--------------------
+1. Salesforce requires My Domain as a security measure to help prevent malicious attacks—just in case a security hole lies hidden deep within a third-party or custom component.
+2. A lightning component needs to implements="force:appHostable", for being hostable in the application.
+3. Visualforce was created before mobile apps on phones became a thing. While you can develop mobile apps with Visualforce, none of the built-in components are mobile-savvy. Which means you write more code. Lightning Components, on the other hand, is specifically optimized to perform well on mobile devices.
+4.Other Web development framworks AngularJS, React, or Ember.
+To use these frameworks : We recommend using them with Visualforce, using what we call a container page, and packaging your chosen framework and app code into static resources. Using an empty container page has Visualforce get out of your way, and lets you use the full capabilities of your chosen framework.
+5. Another thing to consider: general-purpose frameworks such as AngularJS are designed to be agnostic about the platform they run on top of, in particular data services. Lightning Components, on the other hand, is designed to connect natively with services provided by Salesforce and the Force.com platform. Which do you think is going to help you build apps faster?
+6. Resources in a bundle are auto-wired together via a naming scheme for each resource type. Auto-wiring just means that a component definition can reference its controller, helper, etc., and those resources can reference the component definition. They are hooked up to each other (mostly) automatically.
+7. You can’t add apps to Lightning Experience or the Salesforce app—you can only add components. After the last unit this might sound weird; what exactly do you add to the App Launcher, if not an app? What you add to App Launcher is a Salesforce app, which wraps up a Lightning component, something defined in a <aura:component>. A Lightning Components app—that is, something defined in a <aura:application> —can’t be used to create Salesforce apps. A bit weird, but there it is.
+So, what’s an app good for? Why would you ever use one? We answered that question earlier. You publish functionality built with Lightning Components in containers. Lightning Components apps are one kind of container for our Lightning components.
+
+Once again being practical, this usually means that you build all of your “app” functionality inside a top-level component. Then at the end, you stick that one component in a container—maybe a Lightning Components app, maybe the Salesforce app, maybe something else. If you use a my.app, the container can set up services for your main component, but otherwise it’s just there to host the component.
+8. 
+
+
+
+
 1. An expression is basically a formula, or a calculation, which you place within expression delimiters (“{!” and “}”). So, expressions look like the following:
 2. You can’t use JavaScript in expressions in Lightning Components markup.
 3. A controller is basically a collection of code that defines your app’s behavior when “things happen,” whereby “things” we mean user input, timer and other events, data updates, and so on. 
