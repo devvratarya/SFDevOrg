@@ -3,9 +3,11 @@
  -->
 
 <aura:component description="DevComm_9060G000000MUdMQAW" implements="force:appHostable">
-    <ltng:require scripts="{!$Resource.jQuery}" afterScriptsLoaded="{!c.doInit}"/>
+    <ltng:require scripts="{!$Resource.jquerymin}" afterScriptsLoaded="{!c.check}"/>
     <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
-    <aura:attribute name="testbg" type="boolean" default="false"/>
+
+    <aura:attribute name="testbg" type="boolean" default="true"/>
+    <h1 id="message"></h1>
     <div class="slds-form-element">
         <span class="slds-form-element__label" id="file-selector-id">Attachment</span>
         <div class="slds-form-element__control">
