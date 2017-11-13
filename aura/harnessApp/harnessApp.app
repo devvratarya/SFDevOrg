@@ -1,4 +1,5 @@
 <aura:application >
-	<c:myFirstComponent />
-
+	<!-- <c:myFirstComponent /> -->
+    <c:helloPlayground />
+    
 </aura:application>
