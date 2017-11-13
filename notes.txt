@@ -1,0 +1,19 @@
+1. An expression is basically a formula, or a calculation, which you place within expression delimiters (“{!” and “}”). So, expressions look like the following:
+2. You can’t use JavaScript in expressions in Lightning Components markup.
+3. A controller is basically a collection of code that defines your app’s behavior when “things happen,” whereby “things” we mean user input, timer and other events, data updates, and so on. 
+4. In a word, no. There are similarities, to be sure, but it would be more correct to say that Lightning Components is View-Controller-Controller-Model, or perhaps View-Controller-Controller-Database. Why is “controller” doubled up in that pattern name? Because when interacting with Salesforce, your components will have a server-side controller in addition to the client-side controller we’ve worked with in this unit. This dual controller design is the key difference between Lightning Components and MVC.
+
+Different attribute types.:
+--------------------------
+Primitives data types, such as Boolean, Date, DateTime, Decimal, Double, Integer, Long, or String. The usual suspects in any programming language.
+Standard and custom Salesforce objects, such as Account or MyCustomObject__c.
+Collections, such as List, Map, and Set.
+Custom Apex classes.
+Framework-specific types, such as Aura.Component, or Aura.Component[].
+
+Lightning Components:
+{!} --- expression
+{!v.message}, {!v.account.Id} ---- v is value provider (message is the name of the attribute). Value providers are a way to group, encapsulate and access related data.
+{!c.handleClick} -- is also a value provider for the component's client side controller. handleClick is the function defined in that controller. So, {!c.handleClick} is a reference to an action handler in the components controller.
+
+
