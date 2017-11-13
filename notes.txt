@@ -47,6 +47,7 @@ Once again being practical, this usually means that you build all of your “app
 2. You can’t use JavaScript in expressions in Lightning Components markup.
 3. A controller is basically a collection of code that defines your app’s behavior when “things happen,” whereby “things” we mean user input, timer and other events, data updates, and so on. 
 4. In a word, no. There are similarities, to be sure, but it would be more correct to say that Lightning Components is View-Controller-Controller-Model, or perhaps View-Controller-Controller-Database. Why is “controller” doubled up in that pattern name? Because when interacting with Salesforce, your components will have a server-side controller in addition to the client-side controller we’ve worked with in this unit. This dual controller design is the key difference between Lightning Components and MVC.
+5. <lightning:input> is the Swiss army knife for input fields that’s infused with the goodness of SLDS styling. Use it whenever you find yourself reaching for the <ui:input> component variety like <ui:inputText>, <ui:inputNumber>, and others. Components in the ui namespace don’t come with SLDS styling and are considered to be legacy components.
 
 Different attribute types.:
 --------------------------
