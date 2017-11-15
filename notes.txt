@@ -62,8 +62,12 @@ Once again being practical, this usually means that you build all of your “app
      c. | Controller code  | Server-side controller
      c: | Markup | Default namespace
      we have c the client-side controller, c the default namespace, and c the server-side controller, all in Lightning Components
-13. 
-
+13. $A.enqueueAction(action).
+    --It queues up the server request.
+    --As far as your controller action is concerned, that’s the end of it.
+    --You’re not guaranteed when, or if, you’ll hear back.
+14.  The first issue is case sensitivity, and this boils down to Apex and Salesforce in general are case-insensitive, but JavaScript is case-sensitive. That is, “Name” and “name” are the same in Apex, but different in JavaScript.
+15. 
 
 Different attribute types.:
 --------------------------
