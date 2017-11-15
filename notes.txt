@@ -67,9 +67,15 @@ Once again being practical, this usually means that you build all of your “app
     --As far as your controller action is concerned, that’s the end of it.
     --You’re not guaranteed when, or if, you’ll hear back.
 14.  The first issue is case sensitivity, and this boils down to Apex and Salesforce in general are case-insensitive, but JavaScript is case-sensitive. That is, “Name” and “name” are the same in Apex, but different in JavaScript.
-15. 
-
-Different attribute types.:
+15. There are two principal ways to interact with or affect another component. 
+    --The first way is one we’ve seen and done quite a bit of already: setting attributes on the component’s tag. A component’s public attributes constitute one part of its API.
+    --The second way to interact with a component is through events. 
+    :-Like attributes, components declare the events they send out, and the events they can handle. Like attributes, these public events constitute a part of the component’s public API. 
+16. With attributes:  you create a direct relationship between those two components. They are linked, and while they’re using public APIs to remain independent of each other, they’re still coupled.
+    --Events are different. Components don’t send events to another component. That’s not how events work. Components broadcast events of a particular type. If there’s a component that responds to that type of event, and if that component “hears” your event, then it will act on it.
+17. There are two types of events, component and application. Here we’re using a component event, because we want an ancestor component to catch and handle the event. An ancestor is a component “above” this one in the component hierarchy. If we wanted a “general broadcast” kind of event, where any component could receive it, we’d use an application event instead.
+Different attribute types.
+18. 
 --------------------------
 Primitives data types, such as Boolean, Date, DateTime, Decimal, Double, Integer, Long, or String. The usual suspects in any programming language.
 Standard and custom Salesforce objects, such as Account or MyCustomObject__c.
