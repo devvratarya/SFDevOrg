@@ -56,6 +56,13 @@ Once again being practical, this usually means that you build all of your “app
    --A component’s helper is a great place to put complex processing details, so that the logic of your action handlers remains clear and streamlined.
    --Helper functions can have any function signature. That is, they’re not constrained the way that action handlers in the controller are. (Why is this? Because you are calling the helper function directly from your code. By contrast, the framework calls action handlers via the framework runtime.) It’s a convention and recommended practice to always provide the component as the first parameter to helper functions.
 10. The static keyword. All @AuraEnabled controller methods must be static methods, and either public or global scope.
+11. in controller.js the component.get("c.getdata"),  c. represents the remote Apex controller.
+12. c. Identifier, three places in a component
+     c. | Component markup | Client-side controller
+     c. | Controller code  | Server-side controller
+     c: | Markup | Default namespace
+     we have c the client-side controller, c the default namespace, and c the server-side controller, all in Lightning Components
+13. 
 
 
 Different attribute types.:
