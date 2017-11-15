@@ -51,6 +51,11 @@ Once again being practical, this usually means that you build all of your “app
 6. Next, there’s an aura:id attribute set on each tag. What’s that for? It sets a (locally) unique ID on each tag it’s added to, and that ID is how you’ll read values out of the form fields. The fields all share the same ID in this example so that we can access them as an array for field validation. We’ll look at how to do that very shortly.
 7. aria-* : The Accessible Rich Internet Applications specification 
 8. when your controller needs a way to get to a child component, first set an aura:id on that component in markup, and then use component.find(theId) to get a reference to the component at runtime.
+9. Helper function:
+   --A component’s helper is the appropriate place to put code to be shared between several different action handlers.
+   --A component’s helper is a great place to put complex processing details, so that the logic of your action handlers remains clear and streamlined.
+   --Helper functions can have any function signature. That is, they’re not constrained the way that action handlers in the controller are. (Why is this? Because you are calling the helper function directly from your code. By contrast, the framework calls action handlers via the framework runtime.) It’s a convention and recommended practice to always provide the component as the first parameter to helper functions.
+10.    
 
 
 Different attribute types.:
