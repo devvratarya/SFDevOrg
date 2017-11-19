@@ -89,3 +89,15 @@ Lightning Components:
 {!c.handleClick} -- is also a value provider for the component's client side controller. handleClick is the function defined in that controller. So, {!c.handleClick} is a reference to an action handler in the components controller.
 
 
+-------------------------
+SalesforceDX:
+1. Much of the setup you do for Salesforce DX enables you to use a new type of org called a scratch org. A scratch org is a dedicated, configurable, and short-term Salesforce environment that you can quickly spin up when starting a new project, a new feature branch, or a feature test.
+2. Through the configuration file, you can configure the scratch org with different Salesforce editions and with just the features and preferences you want. And you can share the scratch org configuration file with other team members. That way, you all have the same basic org in which to do your development.
+3. To get started with Salesforce DX, you choose an org to function as your Dev Hub. While you can enable Dev Hub in any paid org, it’s always best to practice somewhere other than production.
+4. To get started, log in to the Dev Hub using the CLI, so you’re authorized to create scratch orgs. You can use sfdx force:auth:web:login to log in to various orgs
+5. login to devhub useing sfdx force:auth:web:login -d -a DevHub
+6. Adding the -d flag sets this org as the default Developer Hub. Use the -a to set an alias for the org (something catchy like DevHub). An alias is much easier to remember than the unique Dev Hub username.
+7. Only indicate the -d flag for your Dev Hub. If you use it with a different org, you won’t be able to create scratch orgs until you correctly identify the Dev Hub using the config:set command.
+8. 
+
+
