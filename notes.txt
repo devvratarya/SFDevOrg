@@ -108,5 +108,19 @@ SalesforceDX:
   ---The -f option is the path to the project scratch org configuration file.
 11. Sync the changes you made in the scratch org with your local project:
   -- sfdx force:source:pull or sfdx force:source:pull -f
-12. 
+12. git remote add a git repository or any vcs
+    --pull ur changes to git or vcs for the record
+13. get data from scratch org to data foldersfdx force:data:tree:export -q "SELECT Name, Location__Latitude__s, Location__Longitude__s FROM Account WHERE Location__Latitude__s != NULL AND Location__Longitude__s != NULL" -d ./data
+14. You now have sample data that you can import in the future with the command:
+    sfdx force:data:tree:import --sobjecttreefiles data/Account.json
+15. create a class
+sfdx force:apex:class:create -n AccountController -d force-app/main/default/classes
+16. create a lightning component
+sfdx force:lightning:component:create -n AccountLocator -d force-app/main/default/aura
+17. push the code to the scratch org
+sfdx force:source:push
+18. to pull meta data creeated on the scrratch org:
+sfdx force:source:pull
+19.
+
 
