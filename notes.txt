@@ -98,6 +98,15 @@ SalesforceDX:
 5. login to devhub useing sfdx force:auth:web:login -d -a DevHub
 6. Adding the -d flag sets this org as the default Developer Hub. Use the -a to set an alias for the org (something catchy like DevHub). An alias is much easier to remember than the unique Dev Hub username.
 7. Only indicate the -d flag for your Dev Hub. If you use it with a different org, you won’t be able to create scratch orgs until you correctly identify the Dev Hub using the config:set command.
-8. 
-
+8. login to the sandbox using following command: 
+  --sfdx force:auth:web:login -r https://test.salesforce.com -a FullSandbox
+  --sfdx force:auth:web:login -r https://test.salesforce.com -a DevSandbox
+9. you can run the command sfdx force:org:list to see all the orgs you’ve logged in to. Adding the --verbose option provides you even more info.
+10. Create a scratch org with the alias GeoAppScratch:
+  -- sfdx force:org:create -s -f config/project-scratch-def.json -a GeoAppScratch
+  ---The -s option indicates that you want this scratch org to be the default org for this project.
+  ---The -f option is the path to the project scratch org configuration file.
+11. Sync the changes you made in the scratch org with your local project:
+  -- sfdx force:source:pull or sfdx force:source:pull -f
+12. 
 
