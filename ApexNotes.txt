@@ -1,0 +1,11 @@
+1. To access sharing programmatically, you must use the share object associated with the standard or custom object for which you want
+to share. For example, AccountShare is the sharing object for the Account object, ContactShare is the sharing object for the Contact
+object. In addition, all custom object sharing objects are named as follows, where MyCustomObject is the name of the custom
+object:
+MyCustomObject__Share
+Objects on the detail side of a master-detail relationship do not have an associated sharing object. The detail record’s access is determined
+by the master’s sharing object and the relationship’s sharing setting.
+2. StandardSetController: StandardSetController objects allow you to create list controllers similar to, or as extensions of, the pre-built Visualforce list
+controllers provided by Salesforce. Helps in mass update and pagination.
+3. For private methods in the Apex Class, add 'TestVisible' attribute to the Apex methods to access these methods in the test class.
+4. 
