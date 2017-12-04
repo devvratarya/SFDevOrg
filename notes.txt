@@ -6,6 +6,10 @@ bewährte Vorgehensweisen --> proven approches --> best practices
 
 benutzerdefinierter Objekte --> custom object
 
+soap VS rest:
+https://trailhead.salesforce.com/modules/event_monitoring/units/event_monitoring_query
+Here, we see the other major difference between SOAP and REST when it comes to querying event log files. The returned log files are the same, but they’re presented in different formats. When you retrieve your event log files using SOAP, the result is a serialized, Base64 string. If your organization plans on using tools like Informatica to work with event log files, you want to use SOAP to retrieve your data. REST, on the other hand, deserializes the log file. It’s still not pretty, but as you’ll see in the upcoming section, other tools can transform the REST results into an easy-to-read format.
+
 
 Data import:
 To analyse:
@@ -121,6 +125,6 @@ sfdx force:lightning:component:create -n AccountLocator -d force-app/main/defaul
 sfdx force:source:push
 18. to pull meta data creeated on the scrratch org:
 sfdx force:source:pull
-19.
+19. 
 
 
