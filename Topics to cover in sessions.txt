@@ -1,0 +1,27 @@
+Refer Salesforce Documentation and Certification Outline
+1. CRM intro
+   Sales
+   Service
+   Marketing
+2. What is salesforce and what it provides
+3. Different things in salesforce
+   Platform
+   Salesforce1
+   Visualforce
+   Apex
+   Lightning
+   Communities
+4. Admin
+   Sandbox/Dev/Production Org
+   Navigation
+   Leads conversion
+   Fields Addition
+   Page layouts
+   
+5. Apex
+   DIfferent development IDEs
+   Basics of OOPS
+   SOQL/SQL
+   
+   
+   
