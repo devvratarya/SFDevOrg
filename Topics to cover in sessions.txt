@@ -21,7 +21,7 @@ Refer Salesforce Documentation and Certification Outline
 5. Apex
    DIfferent development IDEs
    Basics of OOPS
-   SOQL/SQL
+   SOQL/SQL (https://trailhead.salesforce.com/modules/database_basics_dotnet/units/sql_to_soql)
    
    
    
