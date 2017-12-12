@@ -143,4 +143,9 @@ The problem is that expandos create an opportunity for subtle bugs and memory le
      Something that might not be obvious, but which causes you endless headaches if you miss it, is that parameter names used in the Apex method declaration must match the parameter names you use when creating the action on the client side.
 Chute! 
      One more nonobvious constraint: Don’t give a server-side controller method the same name as a client-side action handler function. You’ll run into...weirdness. You should adopt a naming convention for your server-side and client-side methods that makes the distinction clear, and naming collisions impossible.
+     You can’t usefully pass a custom Apex class as a parameter from client-side JavaScript to server-side Apex. Instead, use a plain JavaScript object to encapsulate the structured data of the parameter. Parse that object as necessary in your Apex code, for example, in the constructor for an Apex class.
+     You can return a custom Apex class in the response from your server-side controller to client-side JavaScript. However, it’ll be serialized and deserialized as part of that process, and the result might not be exactly what you expect. Ladder! It’s often better to return a map with the data elements you want to include, or JSON you construct yourself.
+     You can’t use Apex inner classes in Lightning components code. Your server-side Apex code can use them in processing a request, but the response returned to the client can’t be an instance of an inner class.
+     You can’t use inheritance with custom Apex classes you intend to return in responses to Lightning components.
+     If your Apex code encounters an error, you can create and throw an AuraHandledException. Catching other exceptions, such as a DML exception, and rethrowing them as an AuraHandledException also results in much better experience on the client side.
 6. 
