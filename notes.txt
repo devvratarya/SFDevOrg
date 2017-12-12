@@ -127,4 +127,20 @@ sfdx force:source:push
 sfdx force:source:pull
 19. 
 
+Apex: Points to remember
+------------------------
+1. JavaScript Expandos and Private Attributes
+Attributes, with their get/set dance, sometimes feel “high ceremony” to Visualforce developers. If you’re JavaScript-savvy, you might try to use a quirk of JavaScript, and set a value on the component instance from within an action function.
 
+>>  component._myExpando = "A new string variable";
+This expando, created on the fly, becomes part of your component instance. It looks like a nice, lightweight private instance variable.
+
+The problem is that expandos create an opportunity for subtle bugs and memory leaks. While they’ll work, they’re also likely to cause problems, and for that reason we recommend against them. The recommended approach is to create a component attribute, and set its access level to private. (We also recommend prefixing the names of private attributes with an underscore (for example, _myAttribute), to make it obvious that they’re private variables.)
+2. Lightning components server-side controller methods must be static, and either public or global.
+3. For Lightning components, a consequence of the server-side controller methods being static is that you can’t store any component state on the server side. Keep component state in its client-side attributes, as described in a preceding section.
+4. For Lightning components, Server-side actions return data. They don’t—they can’t—return a PageReference. Implement your navigation logic on the client side, not the server side.
+5. Again for LIghtning components,
+     Something that might not be obvious, but which causes you endless headaches if you miss it, is that parameter names used in the Apex method declaration must match the parameter names you use when creating the action on the client side.
+Chute! 
+     One more nonobvious constraint: Don’t give a server-side controller method the same name as a client-side action handler function. You’ll run into...weirdness. You should adopt a naming convention for your server-side and client-side methods that makes the distinction clear, and naming collisions impossible.
+6. 
