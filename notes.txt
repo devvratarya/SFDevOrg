@@ -5,12 +5,12 @@ ich muss das im Hinterkopf behalten sollten
 bewährte Vorgehensweisen --> proven approches --> best practices
 
 benutzerdefinierter Objekte --> custom object
-
+--------------------------------------
 soap VS rest:
 https://trailhead.salesforce.com/modules/event_monitoring/units/event_monitoring_query
 Here, we see the other major difference between SOAP and REST when it comes to querying event log files. The returned log files are the same, but they’re presented in different formats. When you retrieve your event log files using SOAP, the result is a serialized, Base64 string. If your organization plans on using tools like Informatica to work with event log files, you want to use SOAP to retrieve your data. REST, on the other hand, deserializes the log file. It’s still not pretty, but as you’ll see in the upcoming section, other tools can transform the REST results into an easy-to-read format.
 
-
+---------------------------------------
 Data import:
 To analyse:
 SF: Data Loader uses the SOAP API to process records. For faster processing, you can configure it to use the Bulk API instead. The Bulk API is optimized to load a large number of records simultaneously. It is faster than the SOAP API due to parallel processing and fewer network round-trips.
@@ -24,10 +24,10 @@ SF: Data Loader uses the SOAP API to process records. For faster processing, you
 6. Make sure the date format is aligned with your local salesforce settings.
 7. vaölidation rules are fired when data is imported. If a a record fails, the particular record is not imported. One should consider deactivating the appropriate validation rules before running the import if the affect the records you are importing
 
-
+---------------------------------------
 Data Security:
 The data security model is implemented at the user interface, but the impact of data security goes down till the API level. 
-
+---------------------------------------
 
 Lightning Components
 --------------------
@@ -42,10 +42,14 @@ To use these frameworks : We recommend using them with Visualforce, using what w
 So, what’s an app good for? Why would you ever use one? We answered that question earlier. You publish functionality built with Lightning Components in containers. Lightning Components apps are one kind of container for our Lightning components.
 
 Once again being practical, this usually means that you build all of your “app” functionality inside a top-level component. Then at the end, you stick that one component in a container—maybe a Lightning Components app, maybe the Salesforce app, maybe something else. If you use a my.app, the container can set up services for your main component, but otherwise it’s just there to host the component.
-8. 
+8. in JS controller:
+    $A.enqueueAction(action) adds the server-side controller action to the queue of actions to be executed. All actions that are enqueued will run at the end of the event loop. Rather than sending a separate request for each individual action, the framework processes the event chain and batches the actions in the queue into one request. The actions are asynchronous and have callbacks.
+If your action is not executing, make sure that you’re not executing code outside the framework’s normal rerendering lifecycle. For example, if you use window.setTimeout() in an event handler to execute some logic after a time delay, wrap your code in $A.getCallback(). You don't need to use $A.getCallback() if your code is executed as part of the framework's call stack; for example, your code is handling an event or in the callback for a server-side controller action.
+9.{!} --- expression
+{!v.message}, {!v.account.Id} ---- v is value provider (message is the name of the attribute). Value providers are a way to group, encapsulate and access related data.
+{!c.handleClick} -- is also a value provider for the component's client side controller. handleClick is the function defined in that controller. So, {!c.handleClick} is a reference to an action handler in the components controller.
 
-
-
+"LIGHTNING CONT..."
 
 1. An expression is basically a formula, or a calculation, which you place within expression delimiters (“{!” and “}”). So, expressions look like the following:
 2. You can’t use JavaScript in expressions in Lightning Components markup.
@@ -80,20 +84,19 @@ Once again being practical, this usually means that you build all of your “app
 17. There are two types of events, component and application. Here we’re using a component event, because we want an ancestor component to catch and handle the event. An ancestor is a component “above” this one in the component hierarchy. If we wanted a “general broadcast” kind of event, where any component could receive it, we’d use an application event instead.
 Different attribute types.
 18. 
---------------------------
+
+
+---------------------------------------
 Primitives data types, such as Boolean, Date, DateTime, Decimal, Double, Integer, Long, or String. The usual suspects in any programming language.
 Standard and custom Salesforce objects, such as Account or MyCustomObject__c.
 Collections, such as List, Map, and Set.
 Custom Apex classes.
 Framework-specific types, such as Aura.Component, or Aura.Component[].
 
-Lightning Components:
-{!} --- expression
-{!v.message}, {!v.account.Id} ---- v is value provider (message is the name of the attribute). Value providers are a way to group, encapsulate and access related data.
-{!c.handleClick} -- is also a value provider for the component's client side controller. handleClick is the function defined in that controller. So, {!c.handleClick} is a reference to an action handler in the components controller.
 
 
--------------------------
+
+---------------------------------------
 SalesforceDX:
 1. Much of the setup you do for Salesforce DX enables you to use a new type of org called a scratch org. A scratch org is a dedicated, configurable, and short-term Salesforce environment that you can quickly spin up when starting a new project, a new feature branch, or a feature test.
 2. Through the configuration file, you can configure the scratch org with different Salesforce editions and with just the features and preferences you want. And you can share the scratch org configuration file with other team members. That way, you all have the same basic org in which to do your development.
@@ -127,6 +130,7 @@ sfdx force:source:push
 sfdx force:source:pull
 19. 
 
+---------------------------------------
 Apex: Points to remember
 ------------------------
 1. JavaScript Expandos and Private Attributes
