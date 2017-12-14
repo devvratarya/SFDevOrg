@@ -152,4 +152,15 @@ Chute!
      You can’t use Apex inner classes in Lightning components code. Your server-side Apex code can use them in processing a request, but the response returned to the client can’t be an instance of an inner class.
      You can’t use inheritance with custom Apex classes you intend to return in responses to Lightning components.
      If your Apex code encounters an error, you can create and throw an AuraHandledException. Catching other exceptions, such as a DML exception, and rethrowing them as an AuraHandledException also results in much better experience on the client side.
-6. 
+6. three ways you can access and modify your Salesforce data with Visualforce:
+    a) Standard Visualforce
+    b) Remote Objects
+        Remote Objects, which we’re using throughout this module, is built to be almost as simple to use as standard Visualforce, but optimized for other use cases such as mobile apps.
+        Remote Objects has two characteristics that make it great for use with the Salesforce app. First, it does away with the view state that’s part of standard Visualforce. View state is extra data that’s passed back and forth between the client browser and the server for every request. It’s part of what makes standard Visualforce simple to implement, but the extra data and requests can be a burden on mobile connections.
+        Second, Remote Objects is JavaScript-based. This makes it natural to use with a variety of mobile frameworks that use JavaScript themselves. We’ll talk more about that in the last unit in this module.
+    c) Javascript Remoting
+       JavaScript Remoting is, as you can probably guess from the name, also based in JavaScript. However, where Remote Objects is simple and straightforward, JavaScript Remoting is flexible and powerful. JavaScript Remoting gives you the most capability to create exactly the app experience you want to deliver, and to provide the best performance for those apps. But to do so, you’ll write more code yourself, and you’ll need to master some complex concepts.
+        For now, we’ll work with Remote Objects. It’s simpler than JavaScript Remoting, but it’s more than capable. 
+
+7. 
+    
